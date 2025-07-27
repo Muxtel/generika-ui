@@ -1,0 +1,11 @@
+export declare const DialogContent: any;
+export declare const DialogCloseTrigger: any;
+export declare const DialogRoot: any;
+export declare const DialogFooter: any;
+export declare const DialogHeader: any;
+export declare const DialogBody: any;
+export declare const DialogBackdrop: any;
+export declare const DialogTitle: any;
+export declare const DialogDescription: any;
+export declare const DialogTrigger: any;
+export declare const DialogActionTrigger: any;

@@ -1,0 +1,4 @@
+import type { HTMLChakraProps, RecipeProps } from "@chakra-ui/react";
+export interface LinkButtonProps extends HTMLChakraProps<"a", RecipeProps<"button">> {
+}
+export declare const LinkButton: any;

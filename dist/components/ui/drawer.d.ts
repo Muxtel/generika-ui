@@ -1,0 +1,11 @@
+export declare const DrawerContent: any;
+export declare const DrawerCloseTrigger: any;
+export declare const DrawerTrigger: any;
+export declare const DrawerRoot: any;
+export declare const DrawerFooter: any;
+export declare const DrawerHeader: any;
+export declare const DrawerBody: any;
+export declare const DrawerBackdrop: any;
+export declare const DrawerDescription: any;
+export declare const DrawerTitle: any;
+export declare const DrawerActionTrigger: any;
