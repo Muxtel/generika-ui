@@ -37,3 +37,9 @@ Get-ChildItem -Recurse -Filter "*generika*"
 cd packages/generika
 npm login
 npm publish --access public
+
+
+# Utiliser configure la base SQLITE en ligne de commandes
+( j'ai fais `pip install sqlite-web`)
+
+`sqlite_web ./backend/data/app.db`
