@@ -1,4 +1,4 @@
-import type { GroupProps, InputProps } from "@chakra-ui/react";
+import type { GroupProps, InputProps, StackProps } from "@chakra-ui/react";
 export interface PasswordVisibilityProps {
     defaultVisible?: boolean;
     visible?: boolean;
@@ -14,5 +14,10 @@ export interface PasswordInputProps extends InputProps, PasswordVisibilityProps 
     type: string;
     errors: any;
 }
-export declare const PasswordInput: any;
-export declare const PasswordStrengthMeter: any;
+export declare const PasswordInput: import("react").ForwardRefExoticComponent<PasswordInputProps & import("react").RefAttributes<HTMLInputElement>>;
+interface PasswordStrengthMeterProps extends StackProps {
+    max?: number;
+    value: number;
+}
+export declare const PasswordStrengthMeter: import("react").ForwardRefExoticComponent<PasswordStrengthMeterProps & import("react").RefAttributes<HTMLDivElement>>;
+export {};

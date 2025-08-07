@@ -10,4 +10,4 @@ export type GenerikaActionsMenuProps<T> = {
     queryKey?: QueryKey;
     openAPI: any;
 };
-export declare function GenerikaActionsMenu<TypeRecord extends Record<string, any>>({ record, mutationEditFn, mutationDeleteFn, validationSchema, hiddenFields, schema, queryKey, openAPI }: GenerikaActionsMenuProps<TypeRecord>): any;
+export declare function GenerikaActionsMenu<TypeRecord extends Record<string, any>>({ record, mutationEditFn, mutationDeleteFn, validationSchema, hiddenFields, schema, queryKey, openAPI }: GenerikaActionsMenuProps<TypeRecord>): import("react/jsx-runtime").JSX.Element;

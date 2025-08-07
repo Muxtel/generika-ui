@@ -8,4 +8,4 @@ export interface TooltipProps extends ChakraTooltip.RootProps {
     contentProps?: ChakraTooltip.ContentProps;
     disabled?: boolean;
 }
-export declare const Tooltip: any;
+export declare const Tooltip: React.ForwardRefExoticComponent<Omit<TooltipProps, "ref"> & React.RefAttributes<HTMLDivElement>>;

@@ -1,5 +1,4 @@
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
-import React from "react";
 import { Select, Portal, createListCollection } from '@chakra-ui/react';
 import { useGetGenerikaItems } from "../hooks/useGenerika";
 export const GenerikaSelect = ({ model_name, selected, onChange, contentRef, openAPI }) => {

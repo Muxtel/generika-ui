@@ -6,4 +6,4 @@ export interface FieldProps extends Omit<ChakraField.RootProps, "label"> {
     errorText?: React.ReactNode;
     optionalText?: React.ReactNode;
 }
-export declare const Field: any;
+export declare const Field: React.ForwardRefExoticComponent<Omit<FieldProps, "ref"> & React.RefAttributes<HTMLDivElement>>;

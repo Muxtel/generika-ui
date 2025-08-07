@@ -6,5 +6,5 @@ interface ButtonLoadingProps {
 }
 export interface ButtonProps extends ChakraButtonProps, ButtonLoadingProps {
 }
-export declare const Button: any;
+export declare const Button: React.ForwardRefExoticComponent<ButtonProps & React.RefAttributes<HTMLButtonElement>>;
 export {};

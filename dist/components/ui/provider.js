@@ -1,7 +1,6 @@
 "use client";
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import { ChakraProvider } from "@chakra-ui/react";
-import React from "react";
 import { system } from "../../theme";
 import { ColorModeProvider } from "./color-mode";
 import { Toaster } from "./toaster";

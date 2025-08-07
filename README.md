@@ -12,8 +12,8 @@ A CRUD scaffolding library for React+Chakra-UI
 
 #### CREATE - Add button
 ```
-export const LayerAdd = () => {
-  const mutationFn = (data:LayerCreate) => LayerService.createLayer({ requestBody: data })
+export const ModelsAddFunctionName = () => {
+  const mutationFn = (data:ModelCreate) => ModelService.createLayer({ requestBody: data })
   return( 
     <GenerikaAdd 
       model_name={model_name} 
@@ -30,7 +30,7 @@ export const LayerAdd = () => {
 
 ### READ - UPDATE - DELETE - Table
 ```
-function ModelsTable(){
+function ModelsTableFunctionName(){
   const mutationEditFn = (data:ModelPublic) => {
     return ModelService.updateModel({ id: data.id, requestBody: data})
       

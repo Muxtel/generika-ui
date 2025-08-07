@@ -9,5 +9,5 @@ type GenerikaAddProps<T> = {
     queryKey: QueryKey;
     openAPI: any;
 };
-export declare const GenerikaAdd: <T extends Record<string, any>>({ model_name, validationSchema, hiddenFields, mutationFn, schema, queryKey, openAPI }: GenerikaAddProps<T>) => any;
+export declare const GenerikaAdd: <T extends Record<string, any>>({ model_name, validationSchema, hiddenFields, mutationFn, schema, queryKey, openAPI }: GenerikaAddProps<T>) => import("react/jsx-runtime").JSX.Element;
 export {};

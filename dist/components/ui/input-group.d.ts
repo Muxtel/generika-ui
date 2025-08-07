@@ -9,4 +9,4 @@ export interface InputGroupProps extends BoxProps {
     startOffset?: InputElementProps["paddingStart"];
     endOffset?: InputElementProps["paddingEnd"];
 }
-export declare const InputGroup: any;
+export declare const InputGroup: React.ForwardRefExoticComponent<InputGroupProps & React.RefAttributes<HTMLDivElement>>;

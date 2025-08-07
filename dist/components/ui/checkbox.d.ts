@@ -5,4 +5,4 @@ export interface CheckboxProps extends ChakraCheckbox.RootProps {
     inputProps?: React.InputHTMLAttributes<HTMLInputElement>;
     rootRef?: React.Ref<HTMLLabelElement>;
 }
-export declare const Checkbox: any;
+export declare const Checkbox: React.ForwardRefExoticComponent<Omit<CheckboxProps, "ref"> & React.RefAttributes<HTMLInputElement>>;

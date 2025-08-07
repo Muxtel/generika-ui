@@ -9,5 +9,5 @@ type EditRecordProps<T> = {
     schema: any;
     openAPI: any;
 };
-export declare function GenerikaEdit<TypeRecord extends Record<string, any>>({ record, mutationEditFn, queryKey, validationSchema, hiddenFields, schema, openAPI }: EditRecordProps<TypeRecord>): any;
+export declare function GenerikaEdit<TypeRecord extends Record<string, any>>({ record, mutationEditFn, queryKey, validationSchema, hiddenFields, schema, openAPI }: EditRecordProps<TypeRecord>): import("react/jsx-runtime").JSX.Element;
 export {};

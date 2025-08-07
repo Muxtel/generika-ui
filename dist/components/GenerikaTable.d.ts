@@ -20,5 +20,5 @@ type GenerikaTableProps<T> = {
     queryKey: QueryKey;
     openAPI: any;
 };
-export declare function GenerikaTable<TypeRecord extends Record<string, any>>({ getFn, mutationEditFn, mutationDeleteFn, hiddenFields, validationSchema, schema, queryKey, openAPI }: GenerikaTableProps<TypeRecord>): any;
+export declare function GenerikaTable<TypeRecord extends Record<string, any>>({ getFn, mutationEditFn, mutationDeleteFn, hiddenFields, validationSchema, schema, queryKey, openAPI }: GenerikaTableProps<TypeRecord>): import("react/jsx-runtime").JSX.Element;
 export {};
