@@ -34,8 +34,12 @@ Get-ChildItem -Recurse -Filter "*generika*"
 
 
 # Publier sur NPM
-cd packages/generika
-npm login
-npm publish --access public
+
+`cd packages/generika-ui`
+
+incrémenter la version si besoin `npm version prerelease --preid=beta` 
+
+`npm login`
+`npm publish --access public`
 
 
