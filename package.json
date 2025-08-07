@@ -1,6 +1,6 @@
 {
   "name": "@duglass/generika",
-  "version": "0.1.2-beta.5",
+  "version": "0.1.2-beta.6",
   "description": "",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
