@@ -35,11 +35,11 @@ export const GenerikaSelect: React.FC<GenerikaSelectProps> = ({model_name, selec
         <Select.HiddenSelect />
         <Select.Control>
             <Select.Trigger>
-            <Select.ValueText placeholder="-" />
+                <Select.ValueText placeholder="-" />
             </Select.Trigger>
             <Select.IndicatorGroup>
-            <Select.ClearTrigger />
-            <Select.Indicator />
+                <Select.ClearTrigger />
+                <Select.Indicator />
             </Select.IndicatorGroup>
         </Select.Control>
         <Portal container={contentRef}>
