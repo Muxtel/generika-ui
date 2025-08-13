@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Button, DialogActionTrigger, Text } from '@chakra-ui/react';
 import { useForm } from "react-hook-form";
-import { useQueryClient, useMutation, QueryKey } from "@tanstack/react-query";
+import { useQueryClient, useMutation, type QueryKey } from "@tanstack/react-query";
 import { FiTrash2 } from "react-icons/fi";
 import {
     DialogBody,

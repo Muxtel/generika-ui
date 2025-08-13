@@ -1,6 +1,6 @@
 import { useRef, useState, useEffect } from "react";
 import { Button, ButtonGroup, DialogActionTrigger, Input, VStack } from '@chakra-ui/react';
-import { Controller, Path } from "react-hook-form";
+import { Controller, type Path } from "react-hook-form";
 import {
     DialogBody,
     DialogCloseTrigger,
@@ -17,7 +17,7 @@ import { FaPlus } from "react-icons/fa";
 import { type ValidationSchema } from "./GenerikaTable";
 import { GenerikaSelect } from "./GenerikaSelect";
 import { useAddGenerikaItem } from "../hooks/useGenerika";
-import { QueryKey, useQueryClient } from "@tanstack/react-query";
+import { type QueryKey, useQueryClient } from "@tanstack/react-query";
 
 
 type GenerikaAddProps<T> = {

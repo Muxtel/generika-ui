@@ -1,7 +1,7 @@
 import React from "react";
 import { Select, Portal, createListCollection} from '@chakra-ui/react';
 import {useGetGenerikaItems} from "../hooks/useGenerika";
-import { useEffect } from "react"
+
 
 type GenerikaSelectProps = {
     model_name: string,

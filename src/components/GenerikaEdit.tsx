@@ -1,8 +1,8 @@
 import { useEffect, useRef } from "react";
 import { Button, ButtonGroup, DialogActionTrigger, Input, VStack } from '@chakra-ui/react';
-import { QueryKey, useQueryClient } from '@tanstack/react-query';
+import { type QueryKey, useQueryClient } from '@tanstack/react-query';
 import { useState } from "react";
-import { Controller, Path } from "react-hook-form";
+import { Controller, type Path, type RegisterOptions } from "react-hook-form";
 import {
     DialogBody,
     DialogCloseTrigger,
@@ -75,7 +75,6 @@ export function GenerikaEdit<TypeRecord extends Record<string, any>>({
               .filter(({ name }) => !hiddenFields?.includes(name))
               .map(({ name, label, required, type = "text" }) => {
                 const value = record?.[name];
-                const relatedFieldName = name + "_id";
                 const selected = (type === "select") ? value : undefined 
                 
                 return (
@@ -107,8 +106,8 @@ export function GenerikaEdit<TypeRecord extends Record<string, any>>({
                       <Input
                         defaultValue={value}
                         {
-                          ...register(name as any, {
-                            ...validationSchema?.[name],
+                          ...register(name as Path<TypeRecord>, {
+                            ...(validationSchema?.[name] as RegisterOptions<TypeRecord>),
                             required: validationSchema?.[name]?.required
                               ?? (required ? `${label} est requis` : false),
                           })
