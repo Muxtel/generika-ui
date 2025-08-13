@@ -1,9 +1,8 @@
 import { Container, Spinner, Text, Table} from '@chakra-ui/react';
-import { RegisterOptions } from "react-hook-form";
-import { request as __request } from '@/client/core/request';
+import { type RegisterOptions } from "react-hook-form";
 import {renderSmartValue, formatLabel} from '../helpers/generikaTableUtils';
 import { GenerikaActionsMenu } from "./GenerikaActions";
-import { QueryKey, useQuery } from '@tanstack/react-query';
+import { type QueryKey, useQuery } from '@tanstack/react-query';
 
 export type ValidationSchema<T> = {
   [K in keyof T]?: RegisterOptions

@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
 import { useMutation } from "@tanstack/react-query";
-import { DefaultValues, FieldValues, useForm } from "react-hook-form";
+import { type DefaultValues, type FieldValues, useForm } from "react-hook-form";
 import { GenerikaService } from "../services/GenerikaService";
 import { useQueryClient } from "@tanstack/react-query";
-import { ApiError } from "@/client/core/ApiError";
+
 
 type Item<T = Record<string, any>> = T & { id: string };
 
@@ -66,7 +66,7 @@ function useEditGenerikaItem<T extends FieldValues>(
         reset();
       },
       onError: (err: any) => {
-        handleError(err);
+        console.log(err);
       },
     });
 
@@ -111,7 +111,7 @@ const useAddGenerikaItem = <T extends Record<string, any>> (model_name: string, 
           console.log(`${model_name} créé avec succès`);
       },
       onError: (err) => {
-          handleError(err as ApiError);
+          console.log(err);
       },
       onSettled: () => {
           queryClient.invalidateQueries({ queryKey: [model_name] });
@@ -128,14 +128,7 @@ const useAddGenerikaItem = <T extends Record<string, any>> (model_name: string, 
   return { handleSubmit, onSubmit, register, mutation, fields, control, errors, isSubmitting }
 
 }
-export const handleError = (err: ApiError) => {
-  const errDetail = (err.body as any)?.detail
-  let errorMessage = errDetail || "Something went wrong."
-  if (Array.isArray(errDetail) && errDetail.length > 0) {
-    errorMessage = errDetail[0].msg
-  }
-  console.log(errorMessage)
-}
+
 
 export default useGetGenerikaItems;
 export {useGetGenerikaItems, useEditGenerikaItem, useAddGenerikaItem};

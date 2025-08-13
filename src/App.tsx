@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import './App.css'
 import { GenerikaTable } from './components/GenerikaTable.tsx'
-import { type ModelPublic, type ModelDeleteModelData, ModelService, type RelModelPublic } from './TypesAndData.ts'
+import { type ModelPublic, type ModelDeleteModelData, ModelService } from '@/client'
 
 function App() {
   const [count, setCount] = useState(0)

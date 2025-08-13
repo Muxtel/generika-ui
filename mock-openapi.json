@@ -1,0 +1,68 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Mock Generika API",
+    "version": "1.0.0"
+  },
+  "paths": {
+    "/api/v1/models": {
+      "get": {
+        "summary": "Get all models",
+        "responses": {
+          "200": {
+            "description": "List of models",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": { "$ref": "#/components/schemas/Model" }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/items": {
+      "get": {
+        "summary": "Get all items",
+        "responses": {
+          "200": {
+            "description": "List of items",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": { "$ref": "#/components/schemas/Item" }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Model": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "integer", "example": 1 },
+          "rel_id": { "type": "integer", "example": 1 },
+          "name": { "type": "string", "example": "Name 1" }
+        },
+        "required": ["id", "rel_id", "name"]
+      },
+      "Item": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "integer", "example": 101 },
+          "model_id": { "type": "integer", "example": 1 },
+          "description": { "type": "string", "example": "Item description" },
+          "price": { "type": "number", "format": "float", "example": 12.5 }
+        },
+        "required": ["id", "model_id", "description", "price"]
+      }
+    }
+  }
+}

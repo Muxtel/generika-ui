@@ -1,5 +1,5 @@
-import {ReactNode} from 'react';
-import { request as __request } from '@/client/core/request';
+import {type ReactNode} from 'react';
+
 
 function renderSmartValue(value: any): ReactNode {
   if (value === null || value === undefined) return "-";

@@ -1,7 +1,7 @@
 import { IconButton} from '@chakra-ui/react';
 import { MenuContent, MenuRoot, MenuTrigger } from "./ui/menu";
 import { BsThreeDotsVertical } from "react-icons/bs";
-import { QueryKey } from '@tanstack/react-query';
+import { type QueryKey } from '@tanstack/react-query';
 import { type ValidationSchema } from "./GenerikaTable";
 import { GenerikaEdit} from "./GenerikaEdit";
 import { GenerikaDelete } from "./GenerikaDelete";
