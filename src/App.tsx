@@ -4,7 +4,9 @@ import { type ItemPublic, ItemService, ItemPublicSchema } from '@/client'
 import { OpenAPI } from '@/client'
 import { type QueryKey, QueryClient, QueryClientProvider } from "@tanstack/react-query"
 import type { Item } from './services/GenerikaService.ts'
-import { ChakraProvider } from '@chakra-ui/react';
+import { ChakraProvider } from '@chakra-ui/react'
+import { system } from "./theme"
+
 
 
 function App() {
@@ -23,12 +25,12 @@ function App() {
   }
   const mutationDeleteFn = (data:ItemPublic) => ItemService.deleteItem({id: data.id})
   const getFn = async () => {
-    const data = await ItemService.readItems()
-    return data.data
+    const res= await ItemService.readItems()
+    return res?.data ?? []
   }
 
   return (
-    <ChakraProvider>
+    <ChakraProvider value={system}>
       <QueryClientProvider client={queryClient}>
         <GenerikaTable 
         getFn={getFn}
