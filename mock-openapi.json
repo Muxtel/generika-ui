@@ -5,36 +5,127 @@
     "version": "1.0.0"
   },
   "paths": {
-    "/api/v1/models": {
-      "get": {
-        "summary": "Get all models",
-        "responses": {
-          "200": {
-            "description": "List of models",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": { "$ref": "#/components/schemas/ModelPublic" }
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/v1/rel_model": {
+    "/api/v1/items": {
       "get": {
         "summary": "Get all items",
+        "operationId": "readItems",
+        "tags": ["Item"],
         "responses": {
           "200": {
             "description": "List of items",
             "content": {
               "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": { "$ref": "#/components/schemas/RelModelPublic" }
-                }
+                "schema": { "$ref": "#/components/schemas/ItemsPublic" }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Create a new item",
+        "operationId": "createItem",
+        "tags": ["Item"],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": { "schema": { "$ref": "#/components/schemas/ItemPublic" } }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Item created",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ItemPublic" } }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/items/{id}": {
+      "get": {
+        "summary": "Get one item",
+        "operationId": "readItem",
+        "tags": ["Item"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "integer" },
+            "description": "ID of the item to fetch"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Item found",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ItemPublic" } }
+            }
+          }
+        }
+      },
+      "put": {
+        "summary": "Update an item",
+        "operationId": "updateItem",
+        "tags": ["Item"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "integer" },
+            "description": "ID of the item to update"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": { "schema": { "$ref": "#/components/schemas/ItemPublic" } }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Item updated",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ItemPublic" } }
+            }
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete an item",
+        "operationId": "deleteItem",
+        "tags": ["Item"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "integer" },
+            "description": "ID of the item to delete"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Item deleted",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ItemPublic" } }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/rel_items": {
+      "get": {
+        "summary": "Get all rel items",
+        "operationId": "readRelItems",
+        "tags": ["RelItem"],
+        "responses": {
+          "200": {
+            "description": "List of rel items",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/RelItemsPublic" }
               }
             }
           }
@@ -44,22 +135,38 @@
   },
   "components": {
     "schemas": {
-      "ModelPublic": {
+      "ItemPublic": {
         "type": "object",
         "properties": {
           "id": { "type": "integer", "example": 1 },
-          "rel_id": { "type": "integer", "example": 1 },
-          "name": { "type": "string", "example": "Name 1" }
+          "name": { "type": "string", "example": "Name 1" },
+          "rel_id": { "type": "integer", "example": 1 }
         },
-        "required": ["id", "rel_id", "name"]
+        "required": ["id", "name", "rel_id"]
       },
-      "RelModelPublic": {
+      "ItemsPublic": {
+        "type": "object",
+        "properties": {
+          "data": { "type": "ItemPublic[]" },
+          "count":{"type":"integer"}
+        },
+        "required": ["data", "count"]
+      },
+      "RelItemPublic": {
         "type": "object",
         "properties": {
           "id": { "type": "integer", "example": 101 },
-          "name": { "type": "string", "example": "Name" }
+          "name": { "type": "string", "example": "Rel Name" }
         },
         "required": ["id", "name"]
+      },
+      "RelItemsPublic": {
+        "type": "object",
+        "properties": {
+          "data": { "type": "RelItemPublic[]" },
+          "count":{"type":"integer"}
+        },
+        "required": ["data", "count"]
       }
     }
   }

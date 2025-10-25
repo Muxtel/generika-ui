@@ -1,34 +1,47 @@
-import { useState } from 'react'
 import './App.css'
-import { GenerikaTable } from './components/GenerikaTable.tsx'
-import { type ModelPublic, type ModelDeleteModelData, ModelService } from '@/client'
+import { GenerikaTable, type ValidationSchema } from './components/GenerikaTable.tsx'
+import { type ItemPublic, ItemService, ItemPublicSchema } from '@/client'
+import { OpenAPI } from '@/client'
+import { type QueryKey, QueryClient, QueryClientProvider } from "@tanstack/react-query"
+import type { Item } from './services/GenerikaService.ts'
+import { ChakraProvider } from '@chakra-ui/react';
+
 
 function App() {
-  const [count, setCount] = useState(0)
+  const queryClient = new QueryClient();
+  const validationSchema: ValidationSchema<Item> = {
+    name: {
+      required: "Le nom est obligatoire",
+    },
+  }
 
-  const mutationEditFn = (data:ModelPublic) => {
-    return ModelService.updateModel({ id: data.id, requestBody: data})
+  const queryKey: QueryKey = ["Item"]
+  const hiddenFields: (keyof ItemPublic)[] = ["id"]
+  const mutationEditFn = (data:ItemPublic) => {
+    return ItemService.updateItem({ id: data.id, requestBody: data})
       
   }
-  const mutationDeleteFn = (data:ModelDeleteModelData) => ModelService.deleteModel({id: data.id})
-  const getFn = () => {
-    const data = ModelService.readModels().then(data => data.data)
-    return data
+  const mutationDeleteFn = (data:ItemPublic) => ItemService.deleteItem({id: data.id})
+  const getFn = async () => {
+    const data = await ItemService.readItems()
+    return data.data
   }
 
   return (
-    <>
-      <GenerikaTable 
-      getFn={getFn}
-      mutationEditFn={mutationEditFn} 
-      hiddenFields={hiddenFields as any} 
-      mutationDeleteFn={mutationDeleteFn}
-      validationSchema={validationSchema}
-      schema = {ModelPublicSchema} 
-      queryKey = {queryKey}
-      openAPI={openAPI}
-    />
-    </>
+    <ChakraProvider>
+      <QueryClientProvider client={queryClient}>
+        <GenerikaTable 
+        getFn={getFn}
+        mutationEditFn={mutationEditFn} 
+        hiddenFields={hiddenFields as any} 
+        mutationDeleteFn={mutationDeleteFn}
+        validationSchema={validationSchema as ValidationSchema<ItemPublic>}
+        schema = {ItemPublicSchema} 
+        queryKey = {queryKey}
+        openAPI={OpenAPI}
+        />
+      </QueryClientProvider>
+    </ChakraProvider>
   )
 }
 
