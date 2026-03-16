@@ -7,7 +7,7 @@ import { useQueryClient } from "@tanstack/react-query";
 
 type Item<T = Record<string, any>> = T & { id: string };
 
-const useGetGenerikaItems = (model_name: string, openAPI) => {
+const useGetGenerikaItems = (model_name: string, openAPI: any) => {
   const [items, setItems] = useState<Item[]>([]);
   
   useEffect(() => {
